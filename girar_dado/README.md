@@ -1,16 +1,36 @@
-# girar_dado
+# Aplicación de Dado Animado en Flutter
 
-A new Flutter project.
+Una aplicación simple que simula el lanzamiento de un dado con una animación visual antes de mostrar el resultado final.
 
-## Getting Started
+## Características
 
-This project is a starting point for a Flutter application.
+- Animación realista del dado girando antes de detenerse
+- Generación aleatoria de números del 1 al 6
+- Interfaz intuitiva con un botón para lanzar el dado
+- Diseño atractivo con gradiente radial de fondo
 
-A few resources to get you started if this is your first Flutter project:
+## Cómo funciona
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Al presionar el botón "Girar dado":
+   - Se inicia una secuencia animada que muestra diferentes caras del dado
+   - Después de la animación, se selecciona aleatoriamente un número final
+   - Se muestra la cara correspondiente al número obtenido
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tecnologías utilizadas
+
+- Flutter SDK
+- Dart
+- Widgets: StatefulWidget, Scaffold, Image.asset, ElevatedButton
+- Animación asíncrona con Future.delayed
+
+## Requisitos
+
+- Flutter SDK instalado
+- Dispositivo o emulador para ejecutar la aplicación
+
+## Personalización
+
+Puedes modificar:
+- La secuencia de animación editando `listaDados`
+- La duración de la animación cambiando `duracion`
+- El diseño visual ajustando el `RadialGradient` y los estilos del botón

@@ -138,22 +138,37 @@ class _HomeDadoState extends State<HomeDado> {
                 child: Image.asset(_rutaCompanero, width: 250),
               ),
               SizedBox(height: 20),
-              Text(
-                _nombreGanador,
-                style: GoogleFonts.nunito(
-                  textStyle: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 10,
-                        color: Colors.orange,
-                        offset: Offset(0, 0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Ganador(a): ",
+                    style: GoogleFonts.nunito(
+                      textStyle: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                  Text(
+                    _nombreGanador,
+                    style: GoogleFonts.nunito(
+                      textStyle: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 10,
+                            color: Colors.orange,
+                            offset: Offset(0, 0),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 20),
               ElevatedButton(

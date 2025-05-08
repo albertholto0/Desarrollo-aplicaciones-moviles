@@ -1,16 +1,43 @@
-# girar_dado
+# Ruleta 603 - Selección Aleatoria de Compañeros
 
-A new Flutter project.
+Una aplicación interactiva que selecciona aleatoriamente un compañero del grupo 603 de Informática mediante una animación visual.
 
-## Getting Started
+## Características Principales
 
-This project is a starting point for a Flutter application.
+- Animación estilo "ruleta" que muestra fotos de compañeros en rápida sucesión
+- Selección final aleatoria entre 7 opciones (compañero1.jpeg a compañero7.jpeg)
+- Diseño atractivo con:
+  - Gradiente radial naranja/blanco
+  - Tipografía personalizada con Google Fonts (Nunito)
+  - Marco con sombra para la foto seleccionada
+- Interfaz intuitiva con botón de acción
 
-A few resources to get you started if this is your first Flutter project:
+## Cómo Funciona
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Al presionar "Escoger al azar":
+   - Se inicia una animación que muestra fotos en secuencia rápida (80ms por imagen)
+   - Tras completar la secuencia, selecciona una foto final aleatoriamente
+   - La animación previene activaciones múltiples simultáneas
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tecnologías Utilizadas
+
+- Flutter SDK
+- Paquete google_fonts para tipografía personalizada
+- Widgets avanzados:
+  - Container con decoración compleja (border, shadow, borderRadius)
+  - StatefulWidget para manejo de estado
+  - Animación asíncrona con Future.delayed
+
+## Personalización
+
+Fácilmente adaptable para:
+- Cambiar las imágenes (actualizar assets/companeros/)
+- Modificar la velocidad de animación (ajustar milliseconds)
+- Editar el diseño (colores, fuentes, efectos)
+- Añadir más participantes
+
+## Requisitos
+
+- Flutter SDK instalado
+- Assets de imágenes en la carpeta especificada
+- Dependencia google_fonts en pubspec.yaml

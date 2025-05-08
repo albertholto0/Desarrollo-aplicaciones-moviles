@@ -1,12 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:examen_parcial2/ruleta.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  String currentScreen = "home-screen";
+
+  void switchScreen() {
+    setState(() {
+      currentScreen = "ruleta-screen";
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Widget screen = HomeRuleta(startRuleta: switchScreen);
+
+    if (currentScreen == "ruleta-screen") {
+      screen = BodyRuleta();
+    }
+    return MaterialApp(home: screen);
+  }
+}
+
+class HomeRuleta extends StatelessWidget {
+  const HomeRuleta({super.key, required this.startRuleta});
+
+  final void Function() startRuleta;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +51,7 @@ class MyApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: startRuleta,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 98, 142, 204),
                     foregroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -30,7 +61,7 @@ class MyApp extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: startRuleta,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 98, 142, 204),
                     foregroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -40,7 +71,7 @@ class MyApp extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: startRuleta,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 98, 142, 204),
                     foregroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -50,7 +81,7 @@ class MyApp extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: startRuleta,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 98, 142, 204),
                     foregroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -60,7 +91,7 @@ class MyApp extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: startRuleta,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 98, 142, 204),
                     foregroundColor: const Color.fromARGB(255, 255, 255, 255),

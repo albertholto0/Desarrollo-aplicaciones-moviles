@@ -56,6 +56,7 @@ class _HomeDadoState extends State<HomeDado> {
         "assets/companeros/companero7.jpeg",
       ];
 
+      // Aqui definí un diccionario que asocia el índice con el nombre del compañero
       Map<int, String> companeros = {
         1: "Albert",
         2: "Amelia",
@@ -84,6 +85,7 @@ class _HomeDadoState extends State<HomeDado> {
             Random().nextInt(6) +
             1; //Selecciona una de las imagenes de mis compañeros al azar
         _rutaCompanero = "assets/companeros/companero$_i.jpeg";
+        // Asigna el nombre del ganador usando el índice seleccionado; si no existe, muestra "No hay ganadores"
         _nombreGanador = companeros[_i] ?? "No hay ganadores";
       });
       _estaAnimado = false; // Marca el fin de la animación
@@ -120,6 +122,7 @@ class _HomeDadoState extends State<HomeDado> {
                   ),
                 ),
               ),
+              // Aquí muestro la imagen de mis camaradas
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -138,6 +141,7 @@ class _HomeDadoState extends State<HomeDado> {
                 child: Image.asset(_rutaCompanero, width: 250),
               ),
               SizedBox(height: 20),
+              // Fila para mostrar el texto ganador y el nombre del ganador
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

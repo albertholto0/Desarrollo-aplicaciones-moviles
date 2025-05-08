@@ -4,50 +4,100 @@ import 'dart:async';
 
 // divide en dos partes
 class BodyRuleta extends StatefulWidget {
-  const BodyRuleta({super.key});
+  final int semestre;
+  final VoidCallback onBack;
+  const BodyRuleta({super.key, required this.semestre, required this.onBack});
+
   @override
   State<BodyRuleta> createState() => _BodyRuletaState();
 }
 
-//"_" nomenclaura de variables privadas
 class _BodyRuletaState extends State<BodyRuleta> {
-  final _semestre = 6;
   late String _rutaDado;
+  late String nombreGanador = "";
+  final Map<int, int> alumnosPorSemestre = {2: 19, 4: 11, 6: 7, 8: 7, 10: 3};
+  final Map<int, Map<int, String>> nombresAlumnos = {
+    2: {
+      1: "Alexander",
+      2: "Ailed",
+      3: "Lizbeth",
+      4: "Lidia",
+      5: "Moncerrath",
+      6: "Iris",
+      7: "Ana",
+      8: "Jairo",
+      9: "Alexis",
+      10: "Miguel",
+      11: "Armando",
+      12: "Aldo",
+      13: "Luis",
+      14: "Angel",
+      15: "Jaziel",
+      16: "Kevin",
+      17: "Roberto",
+      18: "Viviana",
+      19: "Mikal",
+    },
 
+    4: {
+      1: "Bryan",
+      2: "Yamileth",
+      3: "Héctor",
+      4: "Alberto",
+      5: "Adi",
+      6: "Juan licenciado",
+      7: "Rebecca",
+      8: "Rosalinda",
+      9: "Jennifer",
+      10: "Patricia",
+      11: "Galilea",
+    },
+    6: {
+      1: "Albert",
+      2: "Amelia",
+      3: "Edén",
+      4: "Eltonnn",
+      5: "Kevin",
+      6: "Sergio",
+      7: "Diana",
+    },
+    8: {
+      1: "Efrén",
+      2: "Gabriela",
+      3: "Yenisleydis",
+      4: "Huicho",
+      5: "Luis",
+      6: "Nayeli",
+      7: "Ramiro",
+    },
+    10: {1: "Alba", 2: "Adair", 3: "Aldair"},
+  };
   @override
   void initState() {
     super.initState();
-    _rutaDado = "assets/images/semestre$_semestre/cara1.jpg";
+    _rutaDado = "assets/images/semestre${widget.semestre}/cara1.jpg";
   }
 
-  var _i = 1;
   var _estaAnimado = false;
   Future<void> girarDado() async {
-    //print("Bandera $_estaAnimado" );
     if (!_estaAnimado) {
       _estaAnimado = true;
-
-      List<String> listaDados = [
-        "assets/images/semestre$_semestre/cara1.jpg",
-        "assets/images/semestre$_semestre/cara2.jpg",
-        "assets/images/semestre$_semestre/cara3.jpg",
-        "assets/images/semestre$_semestre/cara4.jpg",
-        "assets/images/semestre$_semestre/cara5.jpg",
-        "assets/images/semestre$_semestre/cara6.jpg",
-      ];
+      int total = alumnosPorSemestre[widget.semestre]!;
 
       var duracion = Duration(milliseconds: 80);
 
-      for (var dado in listaDados) {
+      for (var i = 1; i <= total; i++) {
         setState(() {
-          _rutaDado = dado;
+          _rutaDado = "assets/images/semestre${widget.semestre}/cara$i.jpg";
         });
         await Future.delayed(duracion);
       }
 
       setState(() {
-        _i = Random().nextInt(6) + 1;
-        _rutaDado = "assets/images/semestre$_semestre/cara$_i.jpg";
+        int ganador = Random().nextInt(total) + 1;
+        _rutaDado = "assets/images/semestre${widget.semestre}/cara$ganador.jpg";
+        nombreGanador =
+            nombresAlumnos[widget.semestre]?[ganador] ?? "Sin nombre";
       });
       _estaAnimado = false;
     }
@@ -62,8 +112,53 @@ class _BodyRuletaState extends State<BodyRuleta> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(_rutaDado, width: 220),
-              SizedBox(height: 30),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.black, width: 5),
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black,
+                      offset: Offset(0, 2),
+                      blurRadius: 5,
+                      spreadRadius: 1,
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.all(5),
+                child: Image.asset(_rutaDado, width: 220),
+              ),
+              SizedBox(height: 25),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Ganador: ",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    nombreGanador,
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 10,
+                          color: Colors.indigo.shade300,
+                          offset: Offset(0, 0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 25),
               ElevatedButton(
                 onPressed: girarDado,
                 style: ElevatedButton.styleFrom(
@@ -72,6 +167,12 @@ class _BodyRuletaState extends State<BodyRuleta> {
                   textStyle: TextStyle(fontSize: 20),
                 ),
                 child: Text("Seleccionar ganador"),
+              ),
+              SizedBox(height: 15),
+              ElevatedButton.icon(
+                onPressed: widget.onBack,
+                icon: Icon(Icons.home),
+                label: Text("Regresar a inicio"),
               ),
             ],
           ),

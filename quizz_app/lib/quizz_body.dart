@@ -10,16 +10,17 @@ class QuizzBody extends StatefulWidget {
 }
 
 class _QuizzBodyState extends State<QuizzBody> {
-  int _questionNumber = 0;
+  int _questionNumber = 0; // Índice de la pregunta en la que nos encontramos
   void onSelectedAnswer(String answer) {
     widget.addSelectedAnswer(answer);
     setState(() {
-      _questionNumber++;
+      _questionNumber++; // Se avanza a la siguiente pregunta
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // Se obtiene la pregunta actual basada en el índice
     Question currentQuestion = listQuestions[_questionNumber];
     return Scaffold(
       body: Container(

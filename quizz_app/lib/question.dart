@@ -4,12 +4,15 @@ class Question {
   final String textQuestion;
   final List<String> answers;
   List<String> shuffleAnswers() {
+    // Creo una copia de la lista original,
+    // la mezclo y devuelvo la mezcada
     final copyOfList = List.of(answers);
     copyOfList.shuffle();
     return copyOfList;
   }
 }
 
+// Aquí agrego 5 preguntas extremandamente dificiles sobre pokémon
 final listQuestions = [
   Question(
     textQuestion: "¿Qué tipo es Pikachu?",

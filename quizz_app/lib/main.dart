@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // Este es el metodo uno
   // Widget? currentScreen;
-  String currentScreen = "home-screen";
+  String currentScreen = "home-screen"; // Controla que pantalla se muestra
   final List<String> selectedAnswers = [];
   // @override
   // // void initState() {
@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   // //   super.initState();
   // // }
 
-  //CAMBIO DE ESTADO y se mostrá el segundo widget
+  //CAMBIO DE ESTADO y se mostrá el segundo widget. Muestra la pantall de preguntas y limpia la respuestas seleccionadas
   void switchScreen() {
     setState(() {
       currentScreen = "question-screen";
@@ -34,12 +34,16 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  // Agrega una respuesta a la lista de respuestas seleccionadas
   void addSelectedAsnwers(String answer) {
     selectedAnswers.add(answer);
     print(selectedAnswers);
 
+    // Verifica si se han respondido todas las preguntas,
+    // comparando si el número de respuestas es igual al número total de preguntas
     if (selectedAnswers.length == listQuestions.length) {
       setState(() {
+        // Si se han respondido todas, cambia a la pantalla de resultados
         currentScreen = "results-screen";
       });
     }
@@ -47,6 +51,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    // Determina que pantalla mostrar según el estado actual
     //Widget currentScreen=HomeSimple(startQuiz: SwitchScreen,);
     Widget screen = HomeQuizz(startQuiz: switchScreen);
     // Widget screen = ResultsScreen();
@@ -56,6 +61,7 @@ class _MyAppState extends State<MyApp> {
     if (currentScreen == "results-screen") {
       screen = ResultsScreen(selectedAnswers: selectedAnswers);
     }
+    // Se configura el tema de la aplicación
     return MaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: (const Color.fromARGB(255, 192, 220, 255)),

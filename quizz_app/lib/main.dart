@@ -102,31 +102,3 @@ class HomeQuizz extends StatelessWidget {
     );
   }
 }
-
-/**SATEFULWIDGET 
- class HomeSimple extends StatefulWidget {
-  const HomeSimple({super.key});
-  @override
-  State<HomeSimple> createState() {
-    return _HomeSimpleState();
-  }
-}
-
-class _HomeSimpleState extends State<HomeSimple> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('assets/images/pino.png', width: 250),
-              const SizedBox(height: 30),
-              // Botón elevated
-              TextButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.terrain_rounded),
-                label: const Text('Iniciar'),
-              ),
-*/

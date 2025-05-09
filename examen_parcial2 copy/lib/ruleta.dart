@@ -15,6 +15,15 @@ class BodyRuleta extends StatefulWidget {
 class _BodyRuletaState extends State<BodyRuleta> {
   late String _rutaDado;
   late String nombreGanador = "";
+  late String nombreGrupo = "";
+  // Nombre del semestre
+  final Map<int, String> nombreSemestre = {
+    2: "203",
+    4: "403",
+    6: "603",
+    8: "803",
+    10: "1003",
+  };
   // Mapeo de la cantidad de alumnos por semestres
   final Map<int, int> alumnosPorSemestre = {2: 19, 4: 11, 6: 7, 8: 7, 10: 3};
   // Mapeo de los nombres de alumnos por semestre y número.
@@ -79,6 +88,7 @@ class _BodyRuletaState extends State<BodyRuleta> {
     super.initState();
     // Inicializa con la primera imagen
     _rutaDado = "assets/images/semestre${widget.semestre}/cara1.jpg";
+    nombreGrupo = nombreSemestre[widget.semestre]!;
   }
 
   var _estaAnimado = false; // Esto evita animaciones simultaneas
@@ -114,11 +124,43 @@ class _BodyRuletaState extends State<BodyRuleta> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: Color.fromARGB(255, 182, 208, 240)),
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [
+              const Color.fromARGB(255, 255, 255, 255),
+              Color.fromARGB(255, 182, 208, 240),
+            ],
+            radius: 1.5,
+          ),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Grupo ",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    nombreGrupo,
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 10,
+                          color: const Color.fromARGB(255, 96, 107, 161),
+                          offset: Offset(0, 0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -166,14 +208,15 @@ class _BodyRuletaState extends State<BodyRuleta> {
                 ],
               ),
               SizedBox(height: 25),
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: girarDado,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 98, 142, 204),
                   foregroundColor: const Color.fromARGB(255, 255, 255, 255),
                   textStyle: TextStyle(fontSize: 20),
                 ),
-                child: Text("Seleccionar ganador"),
+                icon: Icon(Icons.play_circle_filled),
+                label: Text("Seleccionar ganador"),
               ),
               SizedBox(height: 15),
               ElevatedButton.icon(

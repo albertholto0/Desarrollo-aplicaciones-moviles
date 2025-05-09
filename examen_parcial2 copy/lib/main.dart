@@ -69,6 +69,15 @@ class HomeRuleta extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [
+              const Color.fromARGB(255, 255, 255, 255),
+              Color.fromARGB(255, 182, 208, 240),
+            ],
+            radius: 1.5,
+          ),
+        ),
         child: Center(
           child: Column(
             /**
@@ -78,39 +87,60 @@ class HomeRuleta extends StatelessWidget {
              */
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
+              Text(
+                "Seleccione un semestre",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 10,
+                      color: const Color.fromARGB(255, 199, 152, 221),
+                      offset: Offset(0, 0),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 30),
+              ElevatedButton.icon(
                 onPressed: () {
                   startRuleta(2);
                 },
-                child: Text("2° SEMESTRE"),
+                icon: Icon(Icons.engineering), // Porque son ingenieros
+                label: Text("2° SEMESTRE"),
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: () {
                   startRuleta(4);
                 },
-                child: Text("4° SEMESTRE"),
+                icon: Icon(Icons.computer),
+                label: Text("4° SEMESTRE"),
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: () {
                   startRuleta(6);
                 },
-                child: Text("6° SEMESTRE"),
+                icon: Icon(Icons.android),
+                label: Text("6° SEMESTRE"),
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: () {
                   startRuleta(8);
                 },
-                child: Text("8° SEMESTRE"),
+                icon: Icon(Icons.stay_current_portrait_rounded),
+                label: Text("8° SEMESTRE"),
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: () {
                   startRuleta(10);
                 },
-                child: Text("10° SEMESTRE"),
+                icon: Icon(Icons.class_),
+                label: Text("10° SEMESTRE"),
               ),
             ],
           ),

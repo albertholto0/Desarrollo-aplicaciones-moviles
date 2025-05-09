@@ -18,6 +18,7 @@ class _MyAppState extends State<MyApp> {
   String currentScreen = "home-screen";
   int semestreSeleccionado = 0;
 
+  // Función para cambiar a la pantalla de ruleta
   void switchScreen(int semestre) {
     setState(() {
       semestreSeleccionado = semestre;
@@ -27,11 +28,16 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    // Pantalla inicial por defecto
     Widget screen = HomeRuleta(startRuleta: switchScreen);
 
+    // Cambia a la ruleta si corresponde
     if (currentScreen == "ruleta-screen") {
       screen = BodyRuleta(
         semestre: semestreSeleccionado,
+        /**
+         * onBack nos ayuda a regresar a la pantalla inicio.  
+         */
         onBack: () {
           setState(() {
             currentScreen = "home-screen";
@@ -65,6 +71,11 @@ class HomeRuleta extends StatelessWidget {
       body: Container(
         child: Center(
           child: Column(
+            /**
+             * Dentro de esta columna se definen los botónes para cada semestre. 
+             * La función manda el número de semestre que corresponde al botón,
+             * y este número se ocupa en la clase BodyRuleta. 
+             */
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(

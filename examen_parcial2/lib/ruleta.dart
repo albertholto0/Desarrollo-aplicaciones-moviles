@@ -15,7 +15,9 @@ class BodyRuleta extends StatefulWidget {
 class _BodyRuletaState extends State<BodyRuleta> {
   late String _rutaDado;
   late String nombreGanador = "";
+  // Mapeo de la cantidad de alumnos por semestres
   final Map<int, int> alumnosPorSemestre = {2: 19, 4: 11, 6: 7, 8: 7, 10: 3};
+  // Mapeo de los nombres de alumnos por semestre y número.
   final Map<int, Map<int, String>> nombresAlumnos = {
     2: {
       1: "Alexander",
@@ -75,10 +77,13 @@ class _BodyRuletaState extends State<BodyRuleta> {
   @override
   void initState() {
     super.initState();
+    // Inicializa con la primera imagen
     _rutaDado = "assets/images/semestre${widget.semestre}/cara1.jpg";
   }
 
-  var _estaAnimado = false;
+  var _estaAnimado = false; // Esto evita animaciones simultaneas
+
+  // Función para animar la selección del alumno
   Future<void> girarDado() async {
     if (!_estaAnimado) {
       _estaAnimado = true;
@@ -86,6 +91,7 @@ class _BodyRuletaState extends State<BodyRuleta> {
 
       var duracion = Duration(milliseconds: 80);
 
+      // Esta es una animación, que simula un ciclo rapido por todas las imagenes
       for (var i = 1; i <= total; i++) {
         setState(() {
           _rutaDado = "assets/images/semestre${widget.semestre}/cara$i.jpg";
@@ -93,6 +99,7 @@ class _BodyRuletaState extends State<BodyRuleta> {
         await Future.delayed(duracion);
       }
 
+      // Selección final aleatoria del alumno
       setState(() {
         int ganador = Random().nextInt(total) + 1;
         _rutaDado = "assets/images/semestre${widget.semestre}/cara$ganador.jpg";

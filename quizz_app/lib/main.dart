@@ -26,6 +26,11 @@ class _MyAppState extends State<MyApp> {
   // //   currentScreen = HomeQuizz(startQuiz: SwitchScreen);
   // //   super.initState();
   // // }
+  void returnHome() {
+    setState(() {
+      currentScreen = "home-screen";
+    });
+  }
 
   //CAMBIO DE ESTADO y se mostrá el segundo widget. Muestra la pantall de preguntas y limpia la respuestas seleccionadas
   void switchScreen() {
@@ -60,7 +65,10 @@ class _MyAppState extends State<MyApp> {
       screen = QuizzBody(addSelectedAnswer: addSelectedAsnwers);
     }
     if (currentScreen == "results-screen") {
-      screen = ResultsScreen(selectedAnswers: selectedAnswers);
+      screen = ResultsScreen(
+        selectedAnswers: selectedAnswers,
+        returnHome: returnHome,
+      );
     }
     // Se configura el tema de la aplicación
     return MaterialApp(

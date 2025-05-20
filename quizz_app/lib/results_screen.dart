@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:quizz_app/question.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.selectedAnswers});
+  const ResultsScreen({
+    super.key,
+    required this.selectedAnswers,
+    required this.returnHome,
+  });
   final List<String> selectedAnswers;
+  final VoidCallback returnHome;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +30,7 @@ class ResultsScreen extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: returnHome,
               icon: Icon(Icons.catching_pokemon),
               label: const Text('Volver al inicio'),
             ),

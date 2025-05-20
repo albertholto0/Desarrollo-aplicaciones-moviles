@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizz_app/question.dart';
 import 'package:quizz_app/quizz_body.dart';
 import 'package:quizz_app/results_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,6 +65,7 @@ class _MyAppState extends State<MyApp> {
     // Se configura el tema de la aplicación
     return MaterialApp(
       theme: ThemeData(
+        textTheme: GoogleFonts.nunitoTextTheme(),
         scaffoldBackgroundColor: (const Color.fromARGB(255, 192, 220, 255)),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
@@ -75,7 +77,6 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-
       home: screen,
     );
   }
@@ -99,7 +100,7 @@ class HomeQuizz extends StatelessWidget {
               TextButton.icon(
                 onPressed: startQuiz,
                 icon: Icon(Icons.play_arrow_rounded),
-                label: const Text('Iniciar Quizz'),
+                label: Text('Iniciar Quizz'),
               ),
             ],
           ),

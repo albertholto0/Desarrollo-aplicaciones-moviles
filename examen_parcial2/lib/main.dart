@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
          */
         onBack: () {
           setState(() {
-            currentScreen = "home-screen";
+            currentScreen = "home";
           });
         },
       );

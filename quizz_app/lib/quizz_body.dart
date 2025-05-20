@@ -35,10 +35,10 @@ class _QuizzBodyState extends State<QuizzBody> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  padding: EdgeInsets.all(50),
+                  padding: EdgeInsets.all(30),
                   child: Text(
                     currentQuestion.textQuestion,
-                    style: TextStyle(fontSize: 26),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -50,7 +50,13 @@ class _QuizzBodyState extends State<QuizzBody> {
                       onPressed: () {
                         onSelectedAnswer(answer);
                       },
-                      child: Text(answer),
+                      child: Text(
+                        answer,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: const Color.fromARGB(255, 37, 77, 108),
+                        ),
+                      ),
                     ),
                   ],
                 );

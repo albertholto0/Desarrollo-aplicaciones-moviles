@@ -97,21 +97,25 @@ class HomeQuizz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('assets/images/pokeball.png', width: 250),
-              const SizedBox(height: 30),
-              // Botón elevated
-              TextButton.icon(
-                onPressed: startQuiz,
-                icon: Icon(Icons.play_arrow_rounded),
-                label: Text('Iniciar Quizz'),
-              ),
-            ],
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "¿Qué tanto sabes sobre Pokémon?",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            Image.asset('assets/images/pokeball.png', width: 250),
+            const SizedBox(height: 30),
+            // Botón elevated
+            TextButton.icon(
+              onPressed: startQuiz,
+              icon: Icon(Icons.play_arrow_rounded),
+              label: Text('Iniciar Quizz'),
+            ),
+          ],
         ),
       ),
     );

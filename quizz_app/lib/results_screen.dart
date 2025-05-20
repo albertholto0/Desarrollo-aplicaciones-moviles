@@ -35,7 +35,11 @@ class ResultsScreen extends StatelessWidget {
                   child: Results(selectedAnswers: selectedAnswers),
                 ),
               ),
-              SizedBox(height: 10),
+              Text(
+                "Puntuación: ",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
               TextButton.icon(
                 onPressed: returnHome,
                 icon: Icon(Icons.catching_pokemon),

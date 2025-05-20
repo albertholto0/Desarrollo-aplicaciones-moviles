@@ -73,7 +73,7 @@ class _MyAppState extends State<MyApp> {
     // Se configura el tema de la aplicación
     return MaterialApp(
       theme: ThemeData(
-        textTheme: GoogleFonts.nunitoTextTheme(),
+        textTheme: GoogleFonts.fredokaTextTheme(),
         scaffoldBackgroundColor: (const Color.fromARGB(255, 192, 220, 255)),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
@@ -113,7 +113,12 @@ class HomeQuizz extends StatelessWidget {
             TextButton.icon(
               onPressed: startQuiz,
               icon: Icon(Icons.play_arrow_rounded),
-              label: Text('Iniciar Quizz'),
+              label: Text(
+                'Iniciar Quizz',
+                style: GoogleFonts.fredoka(
+                  textStyle: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
             ),
           ],
         ),

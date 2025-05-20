@@ -74,14 +74,14 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(
         textTheme: GoogleFonts.fredokaTextTheme(),
-        scaffoldBackgroundColor: (const Color.fromARGB(255, 192, 220, 255)),
+        scaffoldBackgroundColor: (const Color.fromARGB(255, 255, 192, 192)),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-            backgroundColor: Color.fromARGB(95, 106, 180, 255),
-            foregroundColor: Color.fromARGB(255, 18, 24, 71),
+            backgroundColor: Color.fromARGB(95, 255, 106, 106),
+            foregroundColor: Color.fromARGB(255, 71, 18, 18),
             textStyle: TextStyle(fontSize: 20),
             iconSize: 30,
-            iconColor: const Color.fromARGB(255, 34, 39, 84),
+            iconColor: const Color.fromARGB(255, 84, 34, 34),
           ),
         ),
       ),
@@ -97,30 +97,38 @@ class HomeQuizz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "¿Qué tanto sabes sobre Pokémon?",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20),
-            Image.asset('assets/images/pokeball.png', width: 250),
-            const SizedBox(height: 30),
-            // Botón elevated
-            TextButton.icon(
-              onPressed: startQuiz,
-              icon: Icon(Icons.play_arrow_rounded),
-              label: Text(
-                'Iniciar Quizz',
-                style: GoogleFonts.fredoka(
-                  textStyle: TextStyle(fontWeight: FontWeight.w500),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [Colors.white, Colors.red],
+            radius: 1.7,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "¿Qué tanto sabes sobre Pokémon?",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20),
+              Image.asset('assets/images/pokeball.png', width: 250),
+              const SizedBox(height: 30),
+              // Botón elevated
+              TextButton.icon(
+                onPressed: startQuiz,
+                icon: Icon(Icons.play_arrow_rounded),
+                label: Text(
+                  'Iniciar Quizz',
+                  style: GoogleFonts.fredoka(
+                    textStyle: TextStyle(fontWeight: FontWeight.w500),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

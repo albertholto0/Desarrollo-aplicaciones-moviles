@@ -12,29 +12,37 @@ class ResultsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Tus resultados son:",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 10),
-            SizedBox(
-              height: 400,
-              width: 380,
-              child: SingleChildScrollView(
-                child: Results(selectedAnswers: selectedAnswers),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [Colors.white, Colors.red],
+            radius: 5,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Tus resultados son:",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-            ),
-            SizedBox(height: 10),
-            TextButton.icon(
-              onPressed: returnHome,
-              icon: Icon(Icons.catching_pokemon),
-              label: const Text('Volver al inicio'),
-            ),
-          ],
+              SizedBox(height: 10),
+              SizedBox(
+                height: 400,
+                width: 380,
+                child: SingleChildScrollView(
+                  child: Results(selectedAnswers: selectedAnswers),
+                ),
+              ),
+              SizedBox(height: 10),
+              TextButton.icon(
+                onPressed: returnHome,
+                icon: Icon(Icons.catching_pokemon),
+                label: const Text('Volver al inicio'),
+              ),
+            ],
+          ),
         ),
       ),
     );

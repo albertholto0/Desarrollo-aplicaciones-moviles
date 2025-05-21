@@ -26,7 +26,7 @@ class _QuizzBodyState extends State<QuizzBody> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 35),
             height: 10,
             decoration: BoxDecoration(
               color: Colors.white,

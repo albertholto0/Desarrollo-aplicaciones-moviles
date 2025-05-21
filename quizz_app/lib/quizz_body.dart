@@ -88,6 +88,7 @@ class _QuizzBodyState extends State<QuizzBody> {
                       ],
                     );
                   }),
+                  //Image.asset('assets/gifs/gengar.gif', height: 150),
                 ],
               ),
             ),

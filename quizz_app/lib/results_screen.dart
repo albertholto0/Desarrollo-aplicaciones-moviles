@@ -9,8 +9,21 @@ class ResultsScreen extends StatelessWidget {
   });
   final List<String> selectedAnswers;
   final VoidCallback returnHome;
+
+  int puntuationQuizz() {
+    int correct = 0;
+    for (var i = 0; i < listQuestions.length; i++) {
+      if (selectedAnswers[i] == listQuestions[i].answers[0]) {
+        correct++;
+      }
+    }
+    return correct;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final correctAnswers = puntuationQuizz();
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -36,7 +49,7 @@ class ResultsScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                "Puntuación: ",
+                "Puntuación: $correctAnswers de ${listQuestions.length}",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
@@ -78,14 +91,17 @@ class Results extends StatelessWidget {
               ),
               Text(
                 "Respuesta correcta: ${listQuestions[i].answers[0]}",
-                style: TextStyle(
-                  fontSize: 19,
-                  color: const Color.fromARGB(255, 8, 111, 12),
-                ),
+                style: TextStyle(fontSize: 19),
               ),
               Text(
                 "Respuesta seleccionada: ${selectedAnswers[i]}",
-                style: TextStyle(fontSize: 19),
+                style: TextStyle(
+                  fontSize: 19,
+                  color:
+                      selectedAnswers[i] == listQuestions[i].answers[0]
+                          ? Colors.green
+                          : Colors.red,
+                ),
               ),
               SizedBox(height: 20),
             ],

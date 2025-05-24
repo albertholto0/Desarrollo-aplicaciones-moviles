@@ -72,6 +72,7 @@ class _MyAppState extends State<MyApp> {
     }
     // Se configura el tema de la aplicación
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.fredokaTextTheme(),
         scaffoldBackgroundColor: (const Color.fromARGB(255, 255, 192, 192)),

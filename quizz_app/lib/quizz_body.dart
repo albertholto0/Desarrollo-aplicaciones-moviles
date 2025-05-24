@@ -73,15 +73,18 @@ class _QuizzBodyState extends State<QuizzBody> {
                     return Column(
                       children: [
                         SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: () {
-                            onSelectedAnswer(answer);
-                          },
-                          child: Text(
-                            answer,
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: const Color.fromARGB(255, 108, 37, 37),
+                        SizedBox(
+                          width: 200,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              onSelectedAnswer(answer);
+                            },
+                            child: Text(
+                              answer,
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: const Color.fromARGB(255, 108, 37, 37),
+                              ),
                             ),
                           ),
                         ),

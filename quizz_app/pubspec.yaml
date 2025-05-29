@@ -37,6 +37,12 @@ dependencies:
   google_fonts: ^6.2.1
   gif: ^2.3.0
   flutter_image: ^4.1.13
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  image_path: "assets/images/logo_app.png"
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +70,7 @@ flutter:
   assets:
     - assets/images/pokeball.png
     - assets/gifs/gengar.gif
+    - assets/images/logo_app.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

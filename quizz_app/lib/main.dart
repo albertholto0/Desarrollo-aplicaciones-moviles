@@ -17,15 +17,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // Este es el metodo uno
-  // Widget? currentScreen;
   String currentScreen = "home-screen"; // Controla que pantalla se muestra
   final List<String> selectedAnswers = [];
-  // @override
-  // // void initState() {
-  // //   currentScreen = HomeQuizz(startQuiz: SwitchScreen);
-  // //   super.initState();
-  // // }
   void returnHome() {
     setState(() {
       currentScreen = "home-screen";

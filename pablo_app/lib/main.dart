@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 
-// Asegúrate de importar tus pantallas
-import 'volumen.dart';
-import 'vol_biomass.dart';
-
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  String currentScreen = "home-screen";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Demo Navegación',
+      title: 'Menú',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),

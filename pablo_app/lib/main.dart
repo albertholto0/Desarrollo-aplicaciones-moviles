@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'vol_biomass.dart';
+import 'volumen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,11 +21,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Menú',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Menú Principal'),
+      home: const MyHomePage(title: 'Calculadora de Biomasa'),
     );
   }
 }
@@ -40,11 +43,27 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: () {}, child: const Text('Volumen')),
+            SizedBox(
+              width: 200,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('Volumen'),
+              ),
+            ),
             const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Volumen y Biomasa'),
+            SizedBox(
+              width: 200,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BiomassCalculator(),
+                    ),
+                  );
+                },
+                child: const Text('Volumen y Biomasa'),
+              ),
             ),
           ],
         ),

@@ -8,9 +8,13 @@ class VolumenCalculator extends StatefulWidget {
 }
 
 class _VolumenCalculatorState extends State<VolumenCalculator> {
+  final TextEditingController _diameterController = TextEditingController();
+  final TextEditingController _heigthController = TextEditingController();
+
+  String results = '';
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold();
   }
 }

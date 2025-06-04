@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uni_places/configurations/app_theme.dart';
+import 'package:uni_places/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: appTheme,
-      home: const MyHomePage(title: 'UNSIJ Places'),
+      home: HomeScreen(),
+      // home: const MyHomePage(title: 'UNSIJ Places'),
       debugShowCheckedModeBanner: false,
     );
   }

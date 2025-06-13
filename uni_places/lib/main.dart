@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uni_places/configurations/app_theme.dart';
 import 'package:uni_places/screens/home_screen.dart';
+import 'package:uni_places/screens/add_place_screen.dart';
 
 void main() {
   runApp(const MyApp());

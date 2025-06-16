@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uni_places/providers/places_provider.dart';
 import 'package:uni_places/domain/place.dart';
+import 'package:uni_places/widgets/photo_picker.dart';
 
 class AddPlaceScreen extends ConsumerStatefulWidget {
   const AddPlaceScreen({super.key});
@@ -44,6 +45,8 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
               decoration: InputDecoration(labelText: "Nombre: "),
               controller: _nameController,
             ),
+            SizedBox(height: 20),
+            PhotoPicker(),
             SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: _addToPlaces,

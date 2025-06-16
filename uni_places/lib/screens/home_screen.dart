@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:uni_places/domain/place.dart';
 import 'package:uni_places/screens/add_place_screen.dart';
 import 'package:uni_places/widgets/places_list.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uni_places/providers/places_provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final places = ref.watch(placesProvider);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -23,14 +27,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: PlacesList(
-        places: [
-          Place(name: "Cafeteria"),
-          Place(name: "Cubo de Alberto"),
-          Place(name: "Redes"),
-          Place(name: "La negra"),
-        ],
-      ),
+      body: PlacesList(places: places),
     );
   }
 }

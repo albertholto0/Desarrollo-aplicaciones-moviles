@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uni_places/domain/place.dart';
+//import 'package:uni_places/domain/place.dart';
 import 'package:uni_places/screens/add_place_screen.dart';
 import 'package:uni_places/widgets/places_list.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 class PhotoPicker extends StatefulWidget {
-  const PhotoPicker({super.key});
+  const PhotoPicker({super.key, required this.onPickedPhoto});
+
+  final void Function(File photo) onPickedPhoto;
 
   @override
   State<StatefulWidget> createState() {
@@ -13,7 +16,16 @@ class PhotoPicker extends StatefulWidget {
 class _PhotoPickerState extends State<PhotoPicker> {
   File? _photo;
 
-  void _takePhoto() {}
+  Future<void> _takePhoto() async {
+    final imagePicker = ImagePicker();
+    final pickedPhoto = await imagePicker.pickImage(source: ImageSource.camera);
+    if (pickedPhoto != null) {
+      setState(() {
+        _photo = File(pickedPhoto.path);
+      });
+      widget.onPickedPhoto(_photo!);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +34,20 @@ class _PhotoPickerState extends State<PhotoPicker> {
       label: Text("Tomar foto"),
       icon: Icon(Icons.add_a_photo),
     );
+    if (_photo != null) {
+      previewPhoto = GestureDetector(
+        onTap: _takePhoto,
+        child: ClipRRect(
+          borderRadius: BorderRadiusGeometry.circular(20),
+          child: Image.file(
+            _photo!,
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+        ),
+      );
+    }
     return Container(
       decoration: BoxDecoration(
         border: Border.all(

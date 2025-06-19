@@ -15,6 +15,7 @@ class PlacesList extends StatelessWidget {
     return ListView.builder(
       itemCount: places.length,
       itemBuilder: (context, i) => ListTile(
+        leading: CircleAvatar(backgroundImage: FileImage(places[i].photo)),
         title: Text(places[i].name),
         onTap: () {
           Navigator.of(context).push(

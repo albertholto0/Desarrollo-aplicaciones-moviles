@@ -13,7 +13,17 @@ class PlaceInfoScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(20),
-        child: Column(children: [Text(place.name)]),
+        child: Column(
+          children: [
+            Text(place.name),
+            Image.file(
+              place.photo,
+              fit: BoxFit.cover,
+              height: 300,
+              width: double.infinity,
+            ),
+          ],
+        ),
       ),
     );
   }
